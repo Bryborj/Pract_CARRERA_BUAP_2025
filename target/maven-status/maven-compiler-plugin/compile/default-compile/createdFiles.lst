@@ -1,0 +1,16 @@
+model\Hombre.class
+ui\VentanaRegistroNinos.class
+model\Persona.class
+model\Usuario.class
+model\Asistente.class
+ui\VentanaPrincipal$1.class
+model\Nino.class
+z_sh\z_shcarrera_buap_2025\Z_shCarrera_BUAP_2025.class
+model\FPanel.class
+model\Carrera.class
+ui\LoginFrame.class
+ui\VentanaPrincipal.class
+ui\VentanaRegistroHombres.class
+ui\VentanaRegistroMujeres.class
+model\AutorInfo.class
+model\Mujer.class
