@@ -142,6 +142,7 @@ public class VentanaRegistroHombres extends JFrame {
 
         btnBuscar.addActionListener(e -> {
             String texto = JOptionPane.showInputDialog("Ingrese nombre o apellido:");
+            if (texto == null || texto.trim().isEmpty()) return;
             carrera.buscar(texto);
         });
         btnListar1.addActionListener(e -> carrera.listar1());

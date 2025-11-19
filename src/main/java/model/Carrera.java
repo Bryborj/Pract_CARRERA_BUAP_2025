@@ -10,7 +10,8 @@ public class Carrera {
     private int consecutivoH = 1, consecutivoM = 1, consecutivoN = 1;
 
     public boolean registrarAsistente(Asistente a) {
-        if (!a.confirmarRegistro()) return false;
+        if (!a.confirmarRegistro())
+            return false;
         asignarIdYAgregar(a);
         return true;
     }
@@ -28,32 +29,47 @@ public class Carrera {
         }
     }
 
-    // ✅ LISTAR 1: mostrar uno por uno
+    
     public void listar1() {
         StringBuilder sb = new StringBuilder();
         sb.append("--- LISTADO INDIVIDUAL ---\n");
-        for (Asistente a : getTodos()) {
-            JOptionPane.showMessageDialog(null, a.toStringCompacto(),
-                    "Participante", JOptionPane.INFORMATION_MESSAGE);
+        if (hombres.isEmpty()) {
+            sb = new StringBuilder();
+            sb.append("No hay participantes registrados.\n");
+            JOptionPane.showMessageDialog(null, sb.toString());
+            return;
+        } else {
+            for (Asistente a : getTodos()) {
+                JOptionPane.showMessageDialog(null, a.toStringCompacto(),
+                        "Participante", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 
-    // ✅ LISTAR 2: mostrar todos juntos en orden alfabético
+    
     public void listar2() {
         List<Asistente> todos = new ArrayList<>(getTodos());
         todos.sort(Comparator.comparing(a -> a.nombre));
         StringBuilder sb = new StringBuilder("=== LISTADO ORDENADO ===\n");
-        for (Asistente a : todos) sb.append(a.toStringCompacto()).append("\n");
+        for (Asistente a : todos)
+            sb.append(a.toStringCompacto()).append("\n");
+        if (todos.isEmpty()) {
+            sb = new StringBuilder();
+            sb.append("No hay participantes registrados.\n");
+            JOptionPane.showMessageDialog(null, sb.toString());
+            return;
+        }
         JOptionPane.showMessageDialog(null, sb.toString());
+        listarInformes();
     }
 
-    // ✅ Buscar por nombre o apellido
+    
     public void buscar(String texto) {
         List<Asistente> encontrados = new ArrayList<>();
         for (Asistente a : getTodos()) {
             if (a.nombre.equalsIgnoreCase(texto)
-             || a.apellidoP.equalsIgnoreCase(texto)
-             || a.apellidoM.equalsIgnoreCase(texto)) {
+                    || a.apellidoP.equalsIgnoreCase(texto)
+                    || a.apellidoM.equalsIgnoreCase(texto)) {
                 encontrados.add(a);
             }
         }
@@ -62,12 +78,13 @@ public class Carrera {
             JOptionPane.showMessageDialog(null, "No se encontró ningún participante con ese nombre.");
         } else {
             StringBuilder sb = new StringBuilder("Resultados de búsqueda:\n");
-            for (Asistente a : encontrados) sb.append(a.toStringCompacto()).append("\n");
+            for (Asistente a : encontrados)
+                sb.append(a.toStringCompacto()).append("\n");
             JOptionPane.showMessageDialog(null, sb.toString());
         }
     }
 
-    // ✅ Obtener todos los asistentes en una lista única
+    
     private List<Asistente> getTodos() {
         List<Asistente> todos = new ArrayList<>();
         todos.addAll(hombres);
