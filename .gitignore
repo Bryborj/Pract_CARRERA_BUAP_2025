@@ -22,3 +22,41 @@
 hs_err_pid*.log
 
 .nbattrs
+
+# Maven
+target/
+
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+
+# Eclipse/IntelliJ/VSCode
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Build artifacts
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+
+# logs
+*.log
+
+# Packages
+*.jar
+*.war
+*.ear
+
+# Other
+/.env
